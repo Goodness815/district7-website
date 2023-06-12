@@ -14,6 +14,7 @@ import MobileNav from "../../components/MobileNav";
 import { useDispatch, useSelector } from "react-redux";
 import { getUser, userSelector } from "../../store/slices/authSlice";
 import withAuth from "../../middleware/isAuthenticated";
+import ViewApartmentDetails from "./explore/viewApartmentDetails";
 
 const UserDashboardLayout = () => {
   const dispatch = useDispatch();
@@ -26,10 +27,10 @@ const UserDashboardLayout = () => {
 
   return (
     <div className="flex h-full">
-      <div className="hidden xl:block xl:max-w-[264px] w-full h-screen text-white p-4 pl-0">
+      <div className="hidden xl:block xl:max-w-[240px] w-full h-screen text-white p-4 pl-0">
         <Sidebar routes={userSideBarRoutes} />
       </div>
-      <div className="flex-grow px-0 xl:px-[60px] xl:py-14 py-24 w-full">
+      <div className="flex-shrink px-0 xl:px-[60px] xl:py-14 py-24 w-full">
         <div className="hidden lg:block px-5">
           <DashboardNavbar user={user} />
         </div>
@@ -40,6 +41,7 @@ const UserDashboardLayout = () => {
         <Routes>
           <Route path="dashboard" element={<UserDashboard />} />
           <Route path="explore" element={<Explore userId={user?.id} />} />
+          <Route path="property/:propId" element={<ViewApartmentDetails />} />
           <Route path="connect" element={<Connect />} />
           <Route path="settings" element={<Settings />} />
           <Route path="notifications" element={<MdNotifications />} />
