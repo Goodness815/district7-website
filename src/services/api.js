@@ -3,7 +3,8 @@ import { customHistory } from "../customBroswerRouter";
 import { toast } from "react-hot-toast";
 import { setIsLoggedOut } from "../store/slices/authSlice";
 
-const BASE_URL = "https://api.district7.com.ng/api";
+// const BASE_URL = "https://api.district7.com.ng/api";
+const BASE_URL = "https://district7-dev.onrender.com/api";
 
 const api = axios.create({
   baseURL: BASE_URL,
